@@ -1,0 +1,63 @@
+package s1p3;
+import javax.swing.*;
+
+/**
+ *
+ * @author Thiago Neves
+ */
+public class S1P3 {
+
+// Principal Method (add exception) added by Theread.sleep()
+    public static void main(String[] args) throws Exception
+    {
+        // Random numer for equation
+        int num1 = (int) (Math.round(Math.random()*10));
+        int num2 = (int) (Math.round(Math.random()*10));
+        
+        //Number for operation
+        int sign = (int) (Math.round(Math.random()*3));
+        
+        //Hold the answer
+        int answer;
+        
+        //Print anwser
+        System.out.println("\n\n******");
+        
+        if(sign==0){
+            //Ask for user calculates the answer
+            System.out.println(num1+ " * " +num2);
+            answer = num1 * num2;
+        }
+        else if(sign==1){
+            System.out.println(num1+ " / " +num2);
+            answer = num1 / num2;
+        }
+        else if(sign==2){
+            System.out.println(num1+ " + " +num2);
+            answer = num1 + num2;
+        }
+        else if(sign==3){
+            System.out.println(num1+ " - " +num2);
+            answer = num1 - num2;
+        }
+        else{
+            //Ask for user calculates
+            System.out.println(num1+ " % " +num2);
+            answer = num1 % num2;
+        }    
+        //Made the reading easier
+        System.out.println("******\n");
+        
+        //Countdown of 3 seconds
+        System.out.println("3...");
+        Thread.sleep(1000);        
+        System.out.println("2...");
+        Thread.sleep(1000);
+        System.out.println("1...");
+        Thread.sleep(1000);
+        
+        //Print answer
+        System.out.println("Answer;"+answer);
+    }
+    
+}
