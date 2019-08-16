@@ -1,0 +1,38 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package s1p2;
+import javax.swing.*;
+
+/**
+ *
+ * @author thiag
+ */
+
+public class S1P2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        //This string will hold the user input
+        String input;
+        
+        //Solicitate input
+        input = JOptionPane.showInputDialog("Input the password here");
+        
+        //Matching Test
+        if(input.equals("Password"))
+        {
+            //Present a message if matching is true
+            System.out.println("Well guessed");
+        }
+        else
+        {
+            System.out.println("Guess again");
+        }
+    }
+    
+}
