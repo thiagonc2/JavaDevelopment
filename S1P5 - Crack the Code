@@ -1,0 +1,69 @@
+package s1p5;
+
+//first, allow for input getting
+import javax.swing.*;
+import java.io.*;
+
+/**
+ * @author Thiago Neves
+ */
+public class S1P5 {
+    
+    public static void main(String[] args) throws Exception
+    {
+     //this String will hold the user's input
+    String input;
+    
+    //get input now
+    input = JOptionPane.showInputDialog("1 to set password,\n"+"2 to unlock the message");
+    //this is the file that will be set and opened
+    File file = new File("password.psswrd");
+    
+    //test for entering or setting the password
+    if(input.equals("1"))
+    {
+        //setting password
+        
+        //get the password
+        String p = JOptionPane.showInputDialog("Enter the password to set");
+        
+        //these are the two lines we learned about...
+        FileOutputStream outStream = new FileOutputStream(file);
+        PrintWriter out = new PrintWriter(outStream);
+        
+        //set the password
+        out.println(p);
+        
+        //close it all
+        out.flush();
+        out.close();
+        outStream.close();
+    }
+    //if user wants to test the password
+    else
+    {
+        //first, we must get the password
+        FileReader fr = new FileReader(file);
+        BufferedReader buffer = new BufferedReader (fr);
+        
+        //this is the password in the file
+        String password = buffer.readLine();
+        
+        //get the user's attempted password
+        String userPass;
+        userPass = JOptionPane.showInputDialog("Enter your guess...");
+        
+        //test the password
+        if(password.equals(userPass))
+        {
+            //if correct
+            JOptionPane.showMessageDialog(null, "CORRECT!!!!");
+        }
+        else
+        {
+            //if incorrect
+            JOptionPane.showMessageDialog(null, "WRONG =(");
+        }
+    }
+  }
+}
