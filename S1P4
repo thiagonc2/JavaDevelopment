@@ -1,0 +1,100 @@
+package s1p4;
+//First allow for input getting
+/**
+ *
+ * @author Thiago Neves
+ */
+import javax.swing.*;
+
+//create a class named S1P3
+public class S1P4 {
+
+    //main method (throws excepetion) added for Thread.sleep()
+    public static void main(String[] args) throws Exception {
+       //This will be how many 1/2 secons the user gets
+        int difficulty;
+        difficulty = Integer.parseInt(JOptionPane.showInputDialog("How are you?\n"
+                +"1 = Evil Genius...\n"+ "10 = evil, but not genius"));
+        //This will tell the loop wheter to continue or not
+        boolean count = false;
+        
+        //The coutent of the main method are about to be enclosed in a do
+        // Whith the loop..
+        do {
+            //reset count to false
+            count = false;
+            
+            //Random numbers for the equation
+            double num1 = (int) (Math.round(Math.random()*10));
+           
+                    
+            //This do...While loop prevents excepetion
+            //Num2 must be declared outside of the do while so
+            //The while part can see it. It will still initialized
+            //Inside the so part, though
+            
+            double num2;
+            do{
+                //Int num2
+                num2 = (int) (Math.round(Math.random()*10));
+            }
+            while (num2==0); //if it is zero doo it again!
+            //Random number for the sign
+            int sign = (int) (Math.round(Math.random()*3));
+            //Will store the answer
+            double answer;
+            System.out.println("\n\n****");
+           
+        if(sign==0){
+            //Ask for user calculates the answer
+            System.out.println(num1+ " * " +num2);
+            answer = num1 * num2;
+        }
+        else if(sign==1){
+            System.out.println(num1+ " / " +num2);
+            answer = num1 / num2;
+        }
+        else if(sign==2){
+            System.out.println(num1+ " + " +num2);
+            answer = num1 + num2;
+        }
+        else if(sign==3){
+            System.out.println(num1+ " - " +num2);
+            answer = num1 - num2;
+        }
+        else{
+            //Ask for user calculates
+            System.out.println(num1+ " % " +num2);
+            answer = num1 % num2;
+        }    
+        
+        //Make it easier to read
+        System.out.println("******\n");
+    
+        //Count down from difficulty..use a for loop!
+        for (int i = difficulty ; i>= 0 ; i--) {
+            //count down at double speed
+            System.out.println(i+ "...");
+            
+            //Instead of waiting a second
+            //this time only wait 1/2 second
+            //per difficulty level
+            Thread.sleep(500);
+        }
+        
+        //Print the answer
+        System.out.println("Answer: "+ answer);
+        
+        //Ask the user if he/she wants to play again
+        String again;
+        again = JOptionPane.showInputDialog("Play Again?");
+        //If the user says yes, set count to true.
+        if(again.equals("Yes"))
+           count=true;
+        
+        }
+        
+        while(count); //Keep going until continue is false
+        
+    }
+}
