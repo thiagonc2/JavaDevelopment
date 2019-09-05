@@ -1,0 +1,47 @@
+
+package s1p6;
+
+//this is important stuff lets you use JOptionPane
+import javax.swing.*;
+
+/**
+ *
+ * @author Thiago Neves
+ */
+public class S1P6 {
+
+
+    public static void main(String[] args) {
+  
+        //this will be used in the while part of the do...while
+        boolean cont = false;
+        do 
+        {
+            cont = false; //reset cont
+            
+            //this is the array of Strings whith the game names
+            String names[] = {"Define: \"Games\"","The Dugeon Defender", "Regional Math-a-thon","National Matha-a-thon"};
+            
+            //now, we will ask the user which name to return
+            int element = Integer.parseInt(JOptionPane.showInputDialog("Which element"));
+            
+            //this will be outputted in the output JOptionPane
+            String output = "The Name of the Game is:\n";
+                    
+            //concat! And get the element
+            output+=names[element];
+            
+            //this is the output JOptionPane
+            JOptionPane.showMessageDialog(null,output);
+            
+            //get input for repeating
+            String repeat = JOptionPane.showInputDialog ("Again");
+            if(repeat.equals("yes"))
+            
+                cont=true;
+        }
+        while(cont); //while cont is true, repeat
+        
+        }
+        
+}
